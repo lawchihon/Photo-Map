@@ -106,9 +106,4 @@ class LocationsViewController: UIViewController, UITableViewDelegate, UITableVie
         });
         task.resume()
     }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let locationsViewController = segue.destination as! LocationsViewController
-        locationsViewController.delegate = self
-    }
 }

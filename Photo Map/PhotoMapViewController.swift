@@ -48,6 +48,11 @@ class PhotoMapViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let locationsViewController = segue.destination as! LocationsViewController
+        locationsViewController.delegate = self
+    }
 }
 
 extension PhotoMapViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -80,6 +85,10 @@ extension PhotoMapViewController: UIImagePickerControllerDelegate, UINavigationC
 
 extension PhotoMapViewController: LocationsViewControllerDelegate {
     func locationsPickedLocation(controller: LocationsViewController, latitude: NSNumber, longitude: NSNumber) {
-        
+        let annotation = MKPointAnnotation()
+        let locationCoordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(latitude), longitude: CLLocationDegrees(longitude))
+        annotation.coordinate = locationCoordinate
+        annotation.title = String(describing: latitude)
+        mapView.addAnnotation(annotation)
     }
 }
