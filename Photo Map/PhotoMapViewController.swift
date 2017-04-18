@@ -77,3 +77,9 @@ extension PhotoMapViewController: UIImagePickerControllerDelegate, UINavigationC
         self.performSegue(withIdentifier: "tagSegue", sender: "")
     }
 }
+
+extension PhotoMapViewController: LocationsViewControllerDelegate {
+    func locationsPickedLocation(controller: LocationsViewController, latitude: NSNumber, longitude: NSNumber) {
+        
+    }
+}
