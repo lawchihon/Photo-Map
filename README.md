@@ -2,7 +2,7 @@
 
 Photo Map is a photo map allows the user to take a photo, tags it with a location, and then sees a map with all the previously tagged photos..
 
-Time spent: ? hours spent in total
+Time spent: 3 hours spent in total
 
 ## User Stories
 
