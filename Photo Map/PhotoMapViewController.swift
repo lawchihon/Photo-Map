@@ -31,6 +31,8 @@ class PhotoMapViewController: UIViewController {
         
         cameraButton.layer.cornerRadius = cameraButton.frame.width / 2
         cameraButton.clipsToBounds = true
+        
+        mapView.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -90,5 +92,24 @@ extension PhotoMapViewController: LocationsViewControllerDelegate {
         annotation.coordinate = locationCoordinate
         annotation.title = String(describing: latitude)
         mapView.addAnnotation(annotation)
+    }
+}
+
+extension PhotoMapViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let reuseID = "myAnnotationView"
+        
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseID)
+        if (annotationView == nil) {
+            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseID)
+            annotationView!.canShowCallout = true
+            annotationView!.leftCalloutAccessoryView = UIImageView(frame: CGRect(x:0, y:0, width: 50, height:50))
+        }
+        
+        let imageView = annotationView?.leftCalloutAccessoryView as! UIImageView
+        // Add the image you stored from the image picker
+        imageView.image = pickedImage
+
+        return annotationView
     }
 }

@@ -13,7 +13,7 @@ The following **required** functionality is completed:
 - [X] Milestone 3: Take a Photo
 - [X] Milestone 4: Tag a Location
 - [X] Milestone 5: Drop a Pin on the map
-- [ ] Milestone 6: Add the photo you chose in the annotation view
+- [X] Milestone 6: Add the photo you chose in the annotation view
 
 The following **optional** features are implemented:
 
